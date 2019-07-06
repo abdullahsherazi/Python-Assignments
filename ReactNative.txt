@@ -1,0 +1,129 @@
+Button Navigation::
+
+import React, { Component } from 'react';  
+import { createStackNavigator, createAppContainer } from 'react-navigation';  
+import Home from './src/screen/home';
+
+// we will use these two screens later in our AppNavigator
+import Todo from './src/screen/myTodo';
+
+const AppNavigator = createStackNavigator(  
+    {
+    Home: {
+        screen: Home,
+        navigationOptions: () => ({
+          // header:null, this will not show the header
+          title: `HOMEAPP`,
+          headerStyle:{
+            backgroundColor:"blue",
+            marginTop:20,
+            height:30
+          },
+          headerTitleStyle:{
+            fontSize:10
+          },
+          headerTitleContainerStyle:{
+            paddingLeft:"30%",
+            paddingBottom:19,
+          },
+          headerTintColor:"white"
+        })
+    },
+    Todo: {
+      screen: Todo,
+      navigationOptions: () => ({
+        title: `TODOAPP`
+      })
+  }
+  },
+    {
+      initialRouteName: 'Home'
+    }
+  );
+
+
+ 
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends Component {  
+  render() {
+    return <AppContainer />;
+  }
+}
+
+
+
+Drawer NAVIGATION::: github: https://github.com/HaysS/react-native-menu-bar
+                     youtube:https://www.youtube.com/watch?v=l3mw1e7rsuo
+
+Bottom Tab Navigation: youtube:https://www.youtube.com/watch?v=7FwTmV4GjaQ
+                       github:https://github.com/react-navigation/react-navigation-material-bottom-tabs
+
+Animation::https://medium.com/react-native-training/react-native-animations-using-the-animated-api-ebe8e0669fae,
+https://www.youtube.com/watch?v=IWW72SArDMo
+
+Splash Screen:: https://whatdidilearn.info/2019/01/13/how-to-implement-a-splash-screen-in-react-native.html
+
+
+APK::
+
+//New Fix 
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+
+$ cd android
+#Create debug build:
+$ ./gradlew assembleDebug
+#Create release build:
+$ ./gradlew assembleRelease #Generated `apk` will be located at `android/app/build/outputs/apk`
+
+
+NPM UNINSTALL::-
+https://docs.npmjs.com/cli/uninstall
+
+For grid:::react-native-gridview
+
+For starRating::https://github.com/djchie/react-native-star-rating
+
+for calenders:: https://www.npmjs.com/package/react-native-calendars
+
+react native console:: react-native log-android
+
+phr se chalai ke lia:: adb reverse tcp:8081 tcp:8081
+
+TAB BAR::
+import React from 'react'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createMaterialTopTabNavigator } from 'react-navigation';
+import List from '../redux/mapFavtoView'
+import DisList from '../redux/mapFavtoDis'
+import Single from '../../Screens/SinglePlaceNew'
+export default 
+createMaterialTopTabNavigator(
+  {
+    Favorites: List,
+    Discoveries:DisList
+  },
+  {
+      tabBarOptions:{
+          tabStyle:{
+              borderRightWidth:0.5,backgroundColor:'#FFF',borderColor:'#999'
+          },
+          labelStyle:{fontSize:10},
+          style:{backgroundColor:'#fff',borderTopWidth:0.5,borderColor:'#999'},
+          inactiveTintColor:'#bbb',
+          activeTintColor:'#000'
+      }
+  }
+)
+
+
+
+ <Tab screenProps={this.props.navigation}/>
+
+
+Coutry Code Select:: https://www.npmjs.com/package/react-native-phone-input	
+		     https://github.com/thegamenicorus/react-native-phone-input/blob/master/examples/CustomLibraryPicker/app.js	
+
+Confirmation Code npm :: https://www.npmjs.com/package/react-native-confirmation-code-field
